@@ -8,7 +8,7 @@ import { FiTrendingDown } from "react-icons/fi"
 import { FiTrendingUp } from "react-icons/fi"
 import { AiFillCaretDown } from "react-icons/ai"
 import { AiOutlineDollarCircle, AiFillStar } from "react-icons/ai"
-import { BiRupee } from "react-icons/bi"
+import { BiEuro } from "react-icons/bi"
 import { useToast } from '@chakra-ui/react'
 import { favouritesActions } from "../../ReduxStore/FavouritesSlice";
 import { useDispatch } from 'react-redux';
@@ -240,15 +240,16 @@ const HomeComnponent = () => {
                         {currencyModal && <div className={styles.currencyModalHold}>
                             <div>
 
-                                <div className=' flex font-semibold gap-3 items-center cursor-pointer mb-7'>
+                                <div className=' flex font-semibold gap-3 items-center cursor-pointer mb-5'>
                                     <AiOutlineDollarCircle className='text-xl font-semibold' />
                                     <p onClick={() => setCurrency("usd")}> USD </p>
                                 </div>
 
-                                <div className=' flex font-semibold gap-3 items-center cursor-pointer'>
-                                    <BiRupee className='text-xl font-semibold' />
-                                    <p onClick={() => setCurrency("inr")}> INR </p>
+                                <div className=' flex font-semibold gap-3 items-center cursor-pointer mb-5'>
+                                    <BiEuro className='text-xl font-semibold' />
+                                    <p onClick={() => setCurrency("eur")}> EUR </p>
                                 </div>
+
                             </div>
 
                         </div>
@@ -319,9 +320,9 @@ const HomeComnponent = () => {
                                             <span className='font-semibold inline-block align-middle uppercase sm:text-base text-sm mr-4'>{coin.id.substring(0, 18)}</span>
                                         </Link>
                                     </td>
-                                    <td className=' font-semibold py-6 sm:text-base text-sm'> {currency == "usd" ? "$" : <BiRupee className=' inline-block'></BiRupee>} {coin.current_price.toLocaleString()}</td>
+                                    <td className=' font-semibold py-6 sm:text-base text-sm'> {currency == "usd" ? "$" : <BiEuro className=' inline-block'></BiEuro>} {coin.current_price.toLocaleString()}</td>
                                     <td className=' font-semibold pl-6 sm:text-base text-sm'>{coin.total_volume.toLocaleString()}</td>
-                                    <td className=' font-semibold text-gray-500 py-6 sm:text-base text-sm'> {currency == "usd" ? "$" : <BiRupee className=' inline-block'></BiRupee>} {coin.market_cap.toLocaleString()}</td>
+                                    <td className=' font-semibold text-gray-500 py-6 sm:text-base text-sm'> {currency == "usd" ? "$" : <BiEuro className=' inline-block'></BiEuro>} {coin.market_cap.toLocaleString()}</td>
                                     <td className={coin.price_change_percentage_24h > 0 ? "text-green-600 sm:text-base text-sm font-semibold py-6 inline-block align-middle" : "text-red-600 font-semibold py-6 inline-block align-middle"}> <span className=' inline-block align-middle'> {coin.price_change_percentage_24h > 0 ? <FiTrendingUp className='text-semibold text-xl text-green-600' /> : <FiTrendingDown className='text-semibold text-xl text-red-600' />} </span>  {coin.price_change_percentage_24h.toFixed(2)}%</td>
                                 </tr>
                             ))}
